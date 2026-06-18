@@ -1,0 +1,10 @@
+# Core analysis dependencies for the e-commerce sales analysis.
+# Tested with the versions pinned below (Python 3.9+).
+
+pandas>=2.0,<3.0          # data loading, cleaning and aggregation
+plotly>=5.18,<7.0         # interactive choropleth map
+matplotlib>=3.7,<4.0      # line / bar / distribution charts
+
+# Notebook execution environment.
+jupyterlab>=4.0           # run EDA_Refactored.ipynb
+ipykernel>=6.0            # Jupyter Python kernel

@@ -1,5 +1,4 @@
-The @DA. ipynb contains exploratory data analysis on e-commerce data in @ecommerce_data, focusing on sales metrics for 2023. Keep the same analysis and graphs,
-and improve the structure and documentation of the notebook.
+The EDA.ipynb contains exploratory data analysis on e-commerce data in @ecommerce_data, focusing on sales metrics for 2023. Keep the same analysis and graphs, and improve the structure and documentation of the notebook.
 
 Review the existing notebook and identify:
 - What business metrics are currently calculated
