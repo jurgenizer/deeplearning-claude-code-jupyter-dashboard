@@ -1,10 +1,13 @@
-# Core analysis dependencies for the e-commerce sales analysis.
+# Core dependencies for the e-commerce sales analysis & dashboard.
 # Tested with the versions pinned below (Python 3.9+).
 
 pandas>=2.0,<3.0          # data loading, cleaning and aggregation
-plotly>=5.18,<7.0         # interactive choropleth map
-matplotlib>=3.7,<4.0      # line / bar / distribution charts
+plotly>=5.18,<7.0         # interactive charts & choropleth map
+
+# Streamlit dashboard (dashboard.py).
+streamlit>=1.30,<2.0      # run: streamlit run dashboard.py
 
 # Notebook execution environment.
+matplotlib>=3.7,<4.0      # line / bar / distribution charts in EDA_Refactored.ipynb
 jupyterlab>=4.0           # run EDA_Refactored.ipynb
 ipykernel>=6.0            # Jupyter Python kernel

@@ -3,7 +3,8 @@
 A refactored, configurable analysis of e-commerce sales data. It reworks the
 original exploratory notebook (`EDA.ipynb`) into a documented, modular project:
 the **same metrics and charts**, reorganised into clear sections with reusable
-code in two Python modules.
+code in two Python modules — plus an interactive **Streamlit dashboard**
+(`dashboard.py`) built on the very same data and metric functions.
 
 ## Project structure
 
@@ -11,6 +12,7 @@ code in two Python modules.
 .
 ├── EDA.ipynb                # Original exploratory notebook (kept for reference)
 ├── EDA_Refactored.ipynb     # Refactored, documented analysis notebook
+├── dashboard.py             # Interactive Streamlit dashboard (Plotly charts)
 ├── data_loader.py           # Data loading, cleaning, joining and filtering
 ├── business_metrics.py      # Business-metric calculations (no I/O, no plotting)
 ├── requirements.txt         # Python dependencies
@@ -53,6 +55,38 @@ pip install -r requirements.txt
 ```
 
 ## Usage
+
+### Run the dashboard
+
+```bash
+streamlit run dashboard.py
+```
+
+This opens an interactive business-intelligence dashboard in your browser
+(default <http://localhost:8501>). All charts are built with **Plotly** and read
+through the same `data_loader` / `business_metrics` code as the notebook.
+
+**Layout**
+
+- **Header** — title (left) and a global **date-range filter** (right). Every
+  card and chart recomputes for the selected range.
+- **KPI row** — Total Revenue, Monthly Growth, Average Order Value, Total
+  Orders. Revenue, AOV and Orders show a coloured trend (green ▲ up / red ▼
+  down, two decimal places) versus the *previous period of equal length*.
+- **Charts (2×2)**
+  - Revenue trend — solid line for the current period, dashed line for the
+    previous period, gridlines, and a compact `$300K`-style y-axis.
+  - Top 10 categories — horizontal bars sorted descending, blue gradient
+    (lighter = lower), value labels formatted as `$300K` / `$2M`.
+  - Revenue by state — US choropleth, blue gradient by revenue.
+  - Satisfaction vs delivery time — average review score per delivery-speed
+    bucket (1–3 days, 4–7 days, 8+ days).
+- **Bottom row** — Average Delivery Time (with a faster-is-better trend) and the
+  Average Review Score (large number with a star rating).
+
+> **Comparison period.** Trend indicators compare the selected range against the
+> immediately preceding range of the same length (e.g. full-year 2023 → 2022).
+> If no prior data exists, the trend reads "no prior period".
 
 ### Run the notebook
 
